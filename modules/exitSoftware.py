@@ -10,18 +10,18 @@ from time import sleep
 from os import system
 
 def exitMessage():
-    
+
     report = AssignedValues.getReport()
-    
-    print(Colors().red() + "\n\n [x] No se puede continuar con el proceso...\n" 
-          + "\n [x] Saliendo del software...\n\n")
-    
+
+    print(Colors().red() + "\n\n [x] No se puede continuar con el proceso...\n"
+        + "\n [x] Saliendo del software...\n\n")
+
     if report != None:
-        writeTXT("\n\n [x] No se puede continuar con el proceso...\n" 
-                 + " [x] Saliendo del software...\n", report)  
-        
-    closeProcess() 
-    
+        writeTXT("\n\n [x] No se puede continuar con el proceso...\n"
+                + " [x] Saliendo del software...\n", report)
+
+    closeProcess()
+
     system("pause")
-    sleep(2)   
+    sleep(2)
     exit(0)

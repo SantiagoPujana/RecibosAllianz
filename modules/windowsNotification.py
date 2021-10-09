@@ -5,15 +5,15 @@ from os import chdir, path
 from win10toast import ToastNotifier
 
 def notification(title, message, duration):
-    
+
     try:
-        
+
         chdir(path.dirname(path.realpath(__file__)))
-        
+
         toast = ToastNotifier()
-        
-        toast.show_toast(title=title, msg=message, 
-                         icon_path="..\\AllianzReceiptsIcon.ico", 
-                         duration=duration, threaded=True)
-    
+
+        toast.show_toast(title=title, msg=message,
+                        icon_path="..\\AllianzReceiptsIcon.ico",
+                        duration=duration, threaded=True)
+
     except Exception: pass

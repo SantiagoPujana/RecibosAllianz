@@ -19,76 +19,76 @@ from os import system
 from sys import exit
 
 class MainProcess:
-    
+
     def startMainProcess(self):
-        
+
         repeat_process = True
-        
+
         try:
-            
+
             while repeat_process:
-            
+
                 Singleton.deleteInstances()
-            
+
                 self.__doVerifications()
-            
+
                 driver_object = ChromeDriver()
                 driver_object.driverOptions()
                 driver_object.initializeDriver()
-                    
+
                 ConnectingToAllianz().connectToAllianz()
-                            
+
                 system("pause")
-                
+
                 repeat_process = EnterData().defineConfirmation("\n [?] ¿Desea repetir el proceso de descarga de recibos Allianz?(Si/No): ")
-            
+
             print("\n")
             system("pause")
             sleep(2)
-            
-        except KeyboardInterrupt: 
-            
+
+        except KeyboardInterrupt:
+
             self.__lastSteps()
-            
+
             closeProcess()
             system("pause")
             exit(0)
-            
-        except Exception:
-            exitMessage()
-    
+
+        #except Exception:
+        #    exitMessage()
+
     def __doVerifications(self):
-        
+
         self.__verifications = Verifications()
-        
+
         self.__verifications.checkCLISize()
         self.__verifications.checkInternet()
         self.__verifications.checkIfDriverExists()
-        
+
         self.__showMenu()
-       
+
     def __showMenu(self):
-        
+
         menu = Menu()
         menu.menuOptions()
-        
+
         self.__verifications.checkIfFileIsOpen("\n [+] CARGANDO...\n")
-        
-        menu.banner() 
+
+        menu.banner()
         sleep(2)
-    
-    @staticmethod    
+
+    @staticmethod
     def __lastSteps():
-        
+
         ExcelFileSettings().saveExcelFile()
-        
-        try: 
+
+        try:
             ProgressBar().getProgressBar().close()
-                    
-        except Exception: pass 
-                   
+
+        except Exception: pass
+
         print(Colors().red() + "\n\n [x] Saliendo del software...\n\n")
-                    
+
         writeTXT(" [x] Saliendo del software...\n" , AssignedValues.getReport())
 
 if __name__ == '__main__':
