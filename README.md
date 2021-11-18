@@ -5,17 +5,19 @@
   <img src="https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=Selenium&logoColor=white" />
 </p>
 
-**Acerca del proyecto**
+<h3><b>Acerca del proyecto</b></h3>
 
-Este proyecto es un bot escrito en Python 3 junto con la librería Selenium, ya que realiza una descarga automática de recibos de seguros Allianz, estos son archivos PDF alojados en la plataforma <a href="https://www.allia2net.com.co/ngx-epac/public/home"><b>Allia2Net<b></a>, así mismo usa un dataset en un archivo Excel para parametrizar los datos de los activos y tomar como referencia el recibo a descargar.
-El propósito de programar este proyecto es el de automatizar y ahorrar tiempo al momento de descargar una gran magnitud de recibos o archivos alojados en internet, por lo tanto, este software puede ser utilizado principalmente por consultores o asesores de seguros específicamente para la empresa <a href="https://www.serconti.com"><b>SERCONTI<b></a>, por lo que este software solo se utiliza para la descarga de recibos de seguros automovilísticos.
-  
-**Características**
+Este proyecto es un bot escrito en Python 3 junto con la librería Selenium, ya que realiza una descarga automática de recibos de seguros Allianz, estos son archivos PDF alojados en la plataforma <a href="https://www.allia2net.com.co/ngx-epac/public/home"><b>Allia2Net</b></a> así mismo usa un dataset en un archivo Excel para parametrizar los datos de los activos y tomar como referencia el recibo a descargar.
 
-Antes de iniciar el proceso de descarga se le solicita al usuario las credenciales para ingresar a la plataforma, también la ruta del archivo Excel, un rango de fechas de facturación, en que carpeta desea que se descarguen los documentos, si desea generar un archivo de texto donde se guarden los procesos hechos por el software y si desea ver el procedimiento con el navegador desplegado. 
+El propósito de programar este proyecto es el de automatizar y ahorrar tiempo al momento de descargar una gran magnitud de recibos o archivos alojados en internet, por lo tanto, este software puede ser utilizado principalmente por consultores o asesores de seguros específicamente para la empresa <a href="https://www.serconti.com"><b>SERCONTI</b></a> por lo que este software solo se utiliza para la descarga de recibos de seguros automovilísticos
+
+<h3><b>Características</b></h3>
+
+Antes de iniciar el proceso de descarga se le solicita al usuario las credenciales para ingresar a la plataforma, también la ruta del archivo Excel, un rango de fechas de facturación, en que carpeta desea que se descarguen los documentos, si desea generar un archivo de texto donde se guarden los procesos hechos por el software y si desea ver el procedimiento con el navegador desplegado.
+
 Durante el proceso muestra los pasos que realiza mientras accede al archivo mediante la plataforma para descargarlo, ya que puede generar algunos errores porque no se encontró un elemento necesario en el DOM de la plataforma para continuar.
 
-**Ayuda e instrucciones** 
+<h3><b>Ayuda e instrucciones</b></h3>
 
 Puede ver el archivo Excel de ejemplo () para saber cómo debe estar estructurado, a continuación, se presentan algunas instrucciones para usar el software:
 - Los datos de en el archivo Excel deben ir en el siguiente orden:
@@ -38,16 +40,17 @@ Puede ver el archivo Excel de ejemplo () para saber cómo debe estar estructurad
 - No se recomienda cambiar el tamaño de la ventana del navegador, ni cambiar entre pestañas si seleccionó ver el proceso de descarga.                                                  - Tener habilitadas las notificaciones en Windows para que el software le indique cuando inició y terminó el proceso.                                                               
 - Para salir del software oprima "Control + C".
 
-**Descarga e Instalación**
+<h3><b>Descarga e Instalación</b></h3>
   
-Para clonar este repositorio y descargar las dependencias, se deben ejecutar los siguientes comandos:
+Para clonar este repositorio y descargar las dependencias, pueden ejecutar los siguientes comandos:
 
     git clone https://github.com/ProzTock/RecibosAllianz.git
-    pip install -r requeriments.txt
+    pip install -r requirements.txt
     python AllianzReceipt.py
 
-Para descargar el instalador para Windows 10 acceda al siguiente link:
-https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
+Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe"><b>aquí</b></a>, o use el siguiente link:
+  
+  https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
 
 
-<a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT<b></a>
+<a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
