@@ -38,7 +38,7 @@ Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/Recib
 - Se recomienda usar una copia del archivo de Excel a utilizar por seguridad.
 - El espacio entre tablas del archivo Excel debe ser máximo de 5 celdas.           
 - No se recomienda cambiar el tamaño de la ventana del navegador, ni cambiar entre pestañas si seleccionó ver el proceso de descarga.                                                  - Tener habilitadas las notificaciones en Windows para que el software le indique cuando inició y terminó el proceso.                                                               
-- Para salir del software oprima "Control + C".
+- Para salir del software oprima "Control + C" y espere un momento.
 
 <h3><b>Descarga e Instalación</b></h3>
   
