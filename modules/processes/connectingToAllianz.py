@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #_*_ coding: utf-8 _*_
 
-from os import close
 from modules.processes.excelFileInfo import ExcelFileInfo
 from modules.processes.login import Login
 from modules.desingPatterns import Singleton
@@ -14,7 +13,7 @@ from modules.colors import Colors
 from modules.chromeDriver import ChromeDriver
 from modules.closeDriverProcess import closeProcess
 from modules.exitSoftware import exitMessage
-from selenium.common.exceptions import WebDriverException
+from selenium.common.exceptions import WebDriverException, TimeoutException
 from time import time
 from threading import Thread
 
@@ -37,16 +36,21 @@ class ConnectingToAllianz(metaclass=Singleton):
 
         try:
 
+            self.__driver.implicitly_wait(30)
             self.__driver.get("https://www.allia2net.com.co/ngx-epac/public/home")
 
             self.__accessingToAllianz()
+
+        except TimeoutException:
+
+            print(self.__RED + "\n [x] Error: Allianz tardó demasiado en responder, intente nuevamente más tarde...")
+            exitMessage()
 
         except WebDriverException as e:
 
             if "net::ERR_NAME_NOT_RESOLVED" in str(e):
 
-                print(self.__RED + "\n [x] Error: No se pudo ingresar a Allianz (https://www.allianz.co)...")
-
+                print(self.__RED + "\n [x] Error: No se pudo ingresar a Allianz (https://www.allia2net.com.co)...")
                 exitMessage()
 
     def __accessingToAllianz(self):

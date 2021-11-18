@@ -49,7 +49,7 @@ class QueryingData(metaclass=Singleton):
         self.__chrome_driver_object.webDriverWait(driver=self.__driver, module="visibility_of_element_located",
                                                 by="id", data="appArea")
 
-        self.__driver.switch_to.frame("appArea")
+        self.__driver. switch_to.frame("appArea")
 
         sleep(2)
 

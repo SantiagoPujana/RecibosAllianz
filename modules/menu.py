@@ -79,7 +79,7 @@ class Menu:
         print(self.__GREEN + "       |                                                                                   |")
         print(self.__GREEN + "       |                        "+self.__CYAN+"Versión de Consola para Windows" + self.__GREEN + "                            |")
         print(self.__GREEN + "       |                                                                                   |")
-        print(self.__GREEN + "       |                                                                                   |")
+        print(self.__GREEN + "       |                    https://github.com/ProzTock/RecibosAllianz                     |")
         print(self.__GREEN + "       |                                                                                   |")
         print(self.__GREEN + "       -------------------------------------------------------------------------------------\n")
 
@@ -109,17 +109,22 @@ class Menu:
             |                                                                                                 |
             |    - Los datos en las filas del archivo Excel no deben tener color de relleno.                  |
             |                                                                                                 |
+            |    - Antes de iniciar el procedimiento solo es necesario que la columna de Aplicativo,          |
+            |      Placa y Tipo de Vehículo tengan datos, esta información debe ser propia de la empresa.     |
+            |                                                                                                 |
             |    - Insertar fechas en el siguiente formato: dd/mm/aaaa                                        |
             |                                                                                                 |
             |    - Se recomienda usar una copia del archivo de Excel a utilizar por seguridad.                |
             |                                                                                                 |
+            |    - El espacio entre tablas del archivo Excel debe ser máximo de 5 celdas.                     |
+            |                                                                                                 |
             |    - No se recomienda cambiar el tamaño de la ventana del navegador, ni cambiar entre pestañas  |
-            |      si seleccionó ver el proceso.                                                              |
+            |      si seleccionó ver el proceso de descarga.                                                  |
             |                                                                                                 |
             |    - Tener habilitadas las notificaciones en Windows para que el software le indique cuando     |
             |      inició y terminó el proceso.                                                               |
             |                                                                                                 |
-            |    - Para salir del software oprime "Control + C".                                              |
+            |    - Para salir del software oprima "Control + C" y espere un momento.                          |
             |                                                                                                 |
             ---------------------------------------------------------------------------------------------------
 

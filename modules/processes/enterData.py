@@ -218,7 +218,8 @@ class EnterData(metaclass=Singleton):
 
         print(self.__YELLOW + """
 
-                [+] Seleccione el número de la carpeta de destino donde quiera guardar los archivos descargados:
+                [+] Seleccione el número de la carpeta de destino donde quiera guardar los
+                    archivos descargados:
 
                     [01] Escritorio
 

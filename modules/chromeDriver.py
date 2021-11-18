@@ -8,6 +8,7 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import SessionNotCreatedException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.remote_connection import LOGGER
 from getpass import getuser
@@ -55,9 +56,10 @@ class ChromeDriver(metaclass=Singleton):
 
     def initializeDriver(self):
 
-        self.__driver = Chrome(executable_path=self.__executable_path, options=self.__options, service_log_path='NUL')
-
-        Verifications().checkVersions(driver=self.__driver)
+        try:
+            self.__driver = Chrome(executable_path=self.__executable_path, options=self.__options, service_log_path='NUL')
+        except SessionNotCreatedException:
+            Verifications().checkVersions()
 
         self.__driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
 

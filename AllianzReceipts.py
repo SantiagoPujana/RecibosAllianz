@@ -42,7 +42,7 @@ class MainProcess:
 
                 repeat_process = EnterData().defineConfirmation("\n [?] ¿Desea repetir el proceso de descarga de recibos Allianz?(Si/No): ")
 
-            print("\n")
+            print()
             system("pause")
             sleep(2)
 
@@ -54,8 +54,8 @@ class MainProcess:
             system("pause")
             exit(0)
 
-        #except Exception:
-        #    exitMessage()
+        except Exception:
+            exitMessage()
 
     def __doVerifications(self):
 

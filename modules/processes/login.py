@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #_*_ coding: utf-8 _*_
 
-from typing import Counter
 from modules.processes.enterData import EnterData
 from modules.assignedValues import AssignedValues
 from modules.logs import writeTXT

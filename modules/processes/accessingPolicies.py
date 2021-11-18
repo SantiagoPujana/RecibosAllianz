@@ -36,7 +36,7 @@ class AccessingPolicies(metaclass=Singleton):
 
         self.__chrome_driver_object.webDriverWait(driver=self.__driver, module="visibility_of_element_located", by="id", data="extensionFrame")
 
-        self.__driver.switch_to_frame("extensionFrame")
+        self.__driver.switch_to.frame("extensionFrame")
 
         while attemps < 2:
 

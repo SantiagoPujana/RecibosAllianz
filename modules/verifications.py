@@ -5,7 +5,6 @@ from modules.assignedValues import AssignedValues
 from modules.desingPatterns import Singleton
 from modules.excelFileSettings import ExcelFileSettings
 from modules.colors import Colors
-from modules.closeDriverProcess import closeProcess
 from modules.getDriver import downloadDriver
 from modules.exitSoftware import exitMessage
 from urllib.request import urlopen
@@ -23,7 +22,7 @@ class Verifications(metaclass=Singleton):
 
         self.__GREEN = Colors().green()
         self.__RED = Colors().red()
-        self.__url = "http://chromedriver.storage.googleapis.com/"
+        self.__url = "https://chromedriver.storage.googleapis.com/"
         self.__drivers = self.__url + "LATEST_RELEASE"
         self.__file_to_download = "/chromedriver_win32.zip"
 
@@ -47,11 +46,10 @@ class Verifications(metaclass=Singleton):
 
         sleep(3)
 
-        if not path.isfile("chromeDriver\\chromedriver.exe"):
+        if not path.isfile("modules\\chromeDriver\\chromedriver.exe"):
 
             try:
                 mkdir("chromeDriver")
-
             except Exception: pass
 
             driver_versions = str(urlopen(self.__drivers).read(), encoding="utf-8")
@@ -98,33 +96,22 @@ class Verifications(metaclass=Singleton):
     def checkPrivileges():
         return windll.shell32.IsUserAnAdmin() == True
 
-    def checkVersions(self, driver):
+    def checkVersions(self):
 
-        browser_version = driver.capabilities['browserVersion']
+        driver_online_version = str(urlopen(self.__drivers).read(), encoding="utf-8")
 
-        driver_online_version = str(urlopen(self.__drivers + "_" + browser_version[0:9]).read(), encoding="utf-8")
+        print(self.__GREEN + "\n [+] Actualizando el driver de Google Chrome...")
 
-        current_driver_version = driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0]
+        downloadDriver(self.__url + driver_online_version + self.__file_to_download)
 
-        print(self.__GREEN + "\nVersión del chromedriver: " + driver_online_version)
+        print(self.__GREEN + "\n [+] Vuelva a ejecutar el software para que los cambios se apliquen...\n\n")
 
-        if browser_version[:9] != driver_online_version[:9] != current_driver_version[:9]:
+        system("pause")
 
-            driver.quit()
+        print(self.__RED + "\n\n [x] Saliendo del software...")
 
-            print(self.__GREEN + "\n [+] Actualizando el driver de Google Chrome...")
-
-            downloadDriver(self.__url + driver_online_version + self.__file_to_download)
-
-            print(self.__GREEN + "\n [+] Vuelva a ejecutar el software para que los cambios se apliquen...\n\n")
-
-            system("pause")
-
-            print(self.__RED + "\n\n [x] Saliendo del software...")
-
-            closeProcess()
-            sleep(2)
-            exit(0)
+        sleep(2)
+        exit(0)
 
     def checkIfFileIsOpen(self, message):
 
