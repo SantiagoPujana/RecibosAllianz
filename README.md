@@ -7,7 +7,7 @@
 
 <h3><b>Acerca del proyecto</b></h3>
 
-Este proyecto es un bot escrito en Python 3 junto con la librería Selenium, ya que realiza una descarga automática de recibos de seguros Allianz, estos son archivos PDF alojados en la plataforma <a href="https://www.allia2net.com.co/ngx-epac/public/home" target='_blank'><b>Allia2Net</b></a> así mismo usa un dataset en un archivo Excel para parametrizar los datos de los activos y tomar como referencia el recibo a descargar.
+Este proyecto es un bot escrito en Python 3 junto con la librería Selenium, ya que realiza una descarga automática de recibos de seguros Allianz, estos son archivos PDF alojados en la plataforma <a href="https://www.allia2net.com.co/ngx-epac/public/home"><b>Allia2Net</b></a> así mismo usa un dataset en un archivo Excel para parametrizar los datos de los activos y tomar como referencia el recibo a descargar.
 
 El propósito de programar este proyecto es el de automatizar y ahorrar tiempo al momento de descargar una gran magnitud de recibos o archivos alojados en internet, por lo tanto, este software puede ser utilizado principalmente por consultores o asesores de seguros específicamente para la empresa <a href="https://www.serconti.com"><b>SERCONTI</b></a> por lo que este software solo se utiliza para la descarga de recibos de seguros automovilísticos
 
@@ -49,8 +49,8 @@ Para clonar este repositorio y descargar las dependencias, pueden ejecutar los s
     python AllianzReceipt.py
 
 Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe"><b>aquí</b></a>, o use el siguiente link:
-  
-  https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
+
+https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
 
 
 <a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
