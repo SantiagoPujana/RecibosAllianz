@@ -19,7 +19,7 @@ Durante el proceso muestra los pasos que realiza mientras accede al archivo medi
 
 <h3><b>Ayuda e instrucciones</b></h3>
 
-Puede ver el archivo Excel de ejemplo () para saber cómo debe estar estructurado, a continuación, se presentan algunas instrucciones para usar el software:
+Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Ejemplo.xlsx"><b>aquí</b></a> o accediendo al siguiente link (https://github.com/ProzTock/RecibosAllianz/raw/main/Ejemplo.xlsx) para saber cómo debe estar estructurado, a continuación, se presentan algunas instrucciones para usar el software:
 - Los datos de en el archivo Excel deben ir en el siguiente orden:
               
     - Aplicativo
