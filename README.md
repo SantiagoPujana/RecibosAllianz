@@ -56,7 +56,7 @@ https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos
 
 <h3><b>Recomendaciones</b></h3>
 
-Se debe tener instalado y actualizado el navegador Google Chrome para un optimo desempeño del software, puede actualizarlo copie el siguiente y pegue el siguiente link: 
+Se debe tener instalado y actualizado el navegador Google Chrome para un optimo desempeño del software, puede actualizarlo copiando el siguiente link: 
 
 ***chrome://settings/help***
 
