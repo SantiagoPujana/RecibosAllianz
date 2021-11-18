@@ -13,9 +13,11 @@ El propósito de programar este proyecto es el de automatizar y ahorrar tiempo a
 
 <h3><b>Características</b></h3>
 
-Antes de iniciar el proceso de descarga se le solicita al usuario las credenciales para ingresar a la plataforma, también la ruta del archivo Excel, un rango de fechas de facturación, en que carpeta desea que se descarguen los documentos, si desea generar un archivo de texto donde se guarden los procesos hechos por el software y si desea ver el procedimiento con el navegador desplegado.
+- El software automaticamente descarga el chrome webdriver, dependiendo de la versión que tenga Google Chrome.
 
-Durante el proceso muestra los pasos que realiza mientras accede al archivo mediante la plataforma para descargarlo, ya que puede generar algunos errores porque no se encontró un elemento necesario en el DOM de la plataforma para continuar.
+- Antes de iniciar el proceso de descarga se le solicita al usuario las credenciales para ingresar a la plataforma, también la ruta del archivo Excel, un rango de fechas de facturación, en que carpeta desea que se descarguen los documentos, si desea generar un archivo de texto donde se guarden los procesos hechos por el software y si desea ver el procedimiento con el navegador desplegado.
+
+- Durante el proceso muestra los pasos que realiza mientras accede al archivo mediante la plataforma para descargarlo, ya que puede generar algunos errores porque no se encontró un elemento necesario en el DOM de la plataforma para continuar.
 
 <h3><b>Ayuda e instrucciones</b></h3>
 
@@ -52,5 +54,10 @@ Para descargar el instalador para Windows 10 acceda <a href="https://github.com/
 
 https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
 
+<h3><b>Recomendaciones</b></h3>
+
+Se debe tener instalado y actualizado el navegador Google Chrome para un optimo desempeño del software, puede actualizarlo copie el siguiente y pegue el siguiente link: 
+
+***chrome://settings/help***
 
 <a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
