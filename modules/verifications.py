@@ -65,7 +65,7 @@ class Verifications(metaclass=Singleton):
 
         excel_sheet_object = ExcelFileSettings().getSheetObject()
 
-        for rows in excel_sheet_object.iter_cols(min_col=2, max_col=2, min_row=1, max_row=1000):
+        for rows in excel_sheet_object.iter_cols(min_col=2, max_col=2, min_row=59):
 
             for row in rows:
 
@@ -76,17 +76,22 @@ class Verifications(metaclass=Singleton):
                         counter = 0
                         int(row.value)
 
-                        if (str(row.fill).split("rgb='")[1].split("'")[0] != "FFFFFF00"):
+                        rgb = str(row.fill).split("rgb=")[1].split(",")[0]
+
+                        if rgb != "None" and rgb != "'FFFFFF00'":
 
                             validate_proccess = True
                             cell_number = row.coordinate
                             break
+
                     else:
 
                         counter += 1
-                        if counter > 4: break
+                        if counter > 4:
+                            break
 
-                except Exception: continue
+                except (TypeError, ValueError):
+                    continue
 
             break
 

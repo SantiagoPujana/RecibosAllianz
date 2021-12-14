@@ -122,9 +122,8 @@ class Menu:
             |      si seleccionó ver el proceso de descarga.                                                  |
             |                                                                                                 |
             |    - Tener habilitadas las notificaciones en Windows para que el software le indique cuando     |
-            |      inició y terminó el proceso.                                                               |
-            |                                                                                                 |
-            |    - Para salir del software oprima "Control + C" y espere un momento.                          |
+            |      inició y terminó el proceso.
+            |
             |                                                                                                 |
             ---------------------------------------------------------------------------------------------------
 

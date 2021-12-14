@@ -56,7 +56,9 @@ class EnterData(metaclass=Singleton):
                     self.__excel_sheet = self.__setData("\n [+] Ingrese el nombre de la hoja del archivo Excel: ")
 
                     try:
+
                         load_workbook(filename=self.__excel_file)[self.__excel_sheet]
+                        flag = True
 
                     except KeyError:
 
@@ -65,8 +67,6 @@ class EnterData(metaclass=Singleton):
                         flag = False
 
                         continue
-
-                    flag = True
 
                     AssignedValues(excel_file=self.__excel_file, excel_sheet=self.__excel_sheet)
 

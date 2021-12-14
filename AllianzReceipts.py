@@ -4,19 +4,16 @@
 from modules.processes.connectingToAllianz import ConnectingToAllianz
 from modules.processes.enterData import EnterData
 from modules.verifications import Verifications
-from modules.assignedValues import AssignedValues
 from modules.chromeDriver import ChromeDriver
 from modules.closeDriverProcess import closeProcess
 from modules.desingPatterns import Singleton
 from modules.excelFileSettings import ExcelFileSettings
 from modules.progressBar import ProgressBar
-from modules.logs import writeTXT
-from modules.colors import Colors
 from modules.menu import Menu
 from modules.exitSoftware import exitMessage
 from time import sleep
 from os import system
-from sys import exit
+import signal
 
 class MainProcess:
 
@@ -46,15 +43,10 @@ class MainProcess:
             system("pause")
             sleep(2)
 
-        except KeyboardInterrupt:
-
-            self.__lastSteps()
+        except Exception:
 
             closeProcess()
-            system("pause")
-            exit(0)
-
-        except Exception:
+            self.__lastSteps()
             exitMessage()
 
     def __doVerifications(self):
@@ -84,14 +76,12 @@ class MainProcess:
 
         try:
             ProgressBar().getProgressBar().close()
-
-        except Exception: pass
-
-        print(Colors().red() + "\n\n [x] Saliendo del software...\n\n")
-
-        writeTXT(" [x] Saliendo del software...\n" , AssignedValues.getReport())
+        except Exception:
+            pass
 
 if __name__ == '__main__':
+
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
 
     if Verifications().checkIsWindows():
         MainProcess().startMainProcess()

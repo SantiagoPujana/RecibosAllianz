@@ -1,0 +1,12 @@
+"Recibos Allianz"
+data.txt
+experiments.py
+initialScript.py
+pyinstaller_command.txt
+modules\_pycache_
+modules\processes\_pycache_
+chromeDriver
+modules\chromeDriver
+Scripts
+Lib
+pyvenv.cfg

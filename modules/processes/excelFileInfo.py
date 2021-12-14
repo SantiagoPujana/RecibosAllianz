@@ -63,7 +63,9 @@ class ExcelFileInfo(metaclass=Singleton):
 
             int(self.__excel_object.getCellValue(row=row_number, column=2))
 
-            if str(self.__excel_object.getCellFill(row=row_number, column=2)).split("rgb='")[1].split("'")[0] != "FFFFFF00":
+            rgb = str(self.__excel_object.getCellFill(row=row_number, column=2)).split("rgb=")[1].split(",")[0]
+
+            if rgb != "None" and rgb != "'FFFFFF00'":
 
                 try:
                     remove(self.__main_path + "\\fichero.pdf")
@@ -116,6 +118,10 @@ class ExcelFileInfo(metaclass=Singleton):
 
         except WebDriverException as e:
             self.__webDriverException(str(e))
+
+        except IndexError:
+            print(row_number)
+            print(self.__excel_object.getCellFill(row=row_number, column=2))
 
         except Exception as e:
             self.__generalException(str(e))
