@@ -47,7 +47,7 @@ Para clonar este repositorio y descargar las dependencias, pueden ejecutar los s
 
     git clone https://github.com/ProzTock/RecibosAllianz.git
     pip install -r requirements.txt
-    python AllianzReceipt.py
+    python AllianzReceipts.py
 
 Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe"><b>aquí</b></a>, o use el siguiente link:
 
