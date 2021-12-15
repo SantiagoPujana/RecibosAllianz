@@ -21,7 +21,7 @@ El propósito de programar este proyecto es el de automatizar y ahorrar tiempo a
 
 <h3><b>Ayuda e instrucciones</b></h3>
 
-Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Ejemplo.xlsx"><b>aquí</b></a> o accediendo al siguiente link (https://github.com/ProzTock/RecibosAllianz/raw/main/Ejemplo.xlsx) para saber cómo debe estar estructurado, a continuación, se presentan algunas instrucciones para usar el software:
+Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Ejemplo.xlsx"><b>aquí</b></a> para saber cómo debe estar estructurado, a continuación, se presentan algunas instrucciones para usar el software:
 - Los datos de en el archivo Excel deben ir en el siguiente orden:
               
     - Aplicativo
@@ -49,9 +49,7 @@ Para clonar este repositorio y descargar las dependencias, pueden ejecutar los s
     pip install -r requirements.txt
     python AllianzReceipts.py
 
-Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe"><b>aquí</b></a>, o use el siguiente link:
-
-https://github.com/ProzTock/RecibosAllianz/raw/main/Instalador-Installer/Recibos_Allianz_Installer.exe
+Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/releases/download/1.0.0/RecibosAllianz_1.0.0_Installer.exe"><b>aquí</b></a>, o puede ver más información de las versiones del software <a href="https://github.com/ProzTock/RecibosAllianz/releases/tag/1.0.0"><b>aquí</b></a>.
 
 <h3><b>Recomendaciones</b></h3>
 
