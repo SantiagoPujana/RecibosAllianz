@@ -2,10 +2,12 @@ data.txt
 experiments.py
 initialScript.py
 pyinstaller_command.txt
-modules\_pycache_
-modules\processes\_pycache_
+modules\__pycache__
+modules\processes\__pycache__
 chromeDriver
 modules\chromeDriver
 Scripts
 Lib
 pyvenv.cfg
+.gitignore
+Recibos Allianz

@@ -119,10 +119,6 @@ class ExcelFileInfo(metaclass=Singleton):
         except WebDriverException as e:
             self.__webDriverException(str(e))
 
-        except IndexError:
-            print(row_number)
-            print(self.__excel_object.getCellFill(row=row_number, column=2))
-
         except Exception as e:
             self.__generalException(str(e))
 

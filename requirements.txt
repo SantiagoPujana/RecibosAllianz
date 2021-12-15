@@ -1,7 +1,6 @@
 openpyxl==3.0.9
-selenium==4.0.0
+selenium==4.1.0
 tqdm==4.62.3
 colorama==0.4.4
-requests==2.26.0
 win10toast==0.9
-PyMuPDF==1.19.1
+PyMuPDF==1.19.3

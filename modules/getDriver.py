@@ -3,15 +3,15 @@
 
 from os import remove
 from zipfile import ZipFile
-from requests import get
+from urllib.request import urlopen
 
 def downloadDriver(url):
 
-    chrome_driver_file = get(url=url)
+    chrome_driver_file = urlopen(url=url).read()
 
     with open("chromeDriver\\chromedriver_win32.zip", 'wb') as download:
 
-        download.write(chrome_driver_file.content)
+        download.write(chrome_driver_file)
 
         download.close()
 

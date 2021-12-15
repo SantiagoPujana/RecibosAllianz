@@ -122,8 +122,9 @@ class Menu:
             |      si seleccionó ver el proceso de descarga.                                                  |
             |                                                                                                 |
             |    - Tener habilitadas las notificaciones en Windows para que el software le indique cuando     |
-            |      inició y terminó el proceso.
-            |
+            |      inició y terminó el proceso.                                                               |
+            |                                                                                                 |
+            |    - Para más información visitar -> https://github.com/ProzTock/RecibosAllianz                 |
             |                                                                                                 |
             ---------------------------------------------------------------------------------------------------
 

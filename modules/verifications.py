@@ -65,7 +65,7 @@ class Verifications(metaclass=Singleton):
 
         excel_sheet_object = ExcelFileSettings().getSheetObject()
 
-        for rows in excel_sheet_object.iter_cols(min_col=2, max_col=2, min_row=59):
+        for rows in excel_sheet_object.iter_cols(min_col=2, max_col=2, min_row=1):
 
             for row in rows:
 
