@@ -41,15 +41,13 @@ Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/Recib
 - El espacio entre tablas del archivo Excel debe ser máximo de 5 celdas.           
 - No se recomienda cambiar el tamaño de la ventana del navegador, ni cambiar entre pestañas si seleccionó ver el proceso de descarga.                                                  - Tener habilitadas las notificaciones en Windows para que el software le indique cuando inició y terminó el proceso.                                                               
 
-<h3><b>Descarga e Instalación</b></h3>
+<h3><b>Descarga</b></h3>
   
 Para clonar este repositorio y descargar las dependencias, pueden ejecutar los siguientes comandos:
 
     git clone https://github.com/ProzTock/RecibosAllianz.git
     pip install -r requirements.txt
     python AllianzReceipts.py
-
-Para descargar el instalador para Windows 10 acceda <a href="https://github.com/ProzTock/RecibosAllianz/releases/download/1.0.0/RecibosAllianz_1.0.0_Installer.exe"><b>aquí</b></a>, o puede ver más información de las versiones del software <a href="https://github.com/ProzTock/RecibosAllianz/releases/tag/1.0.0"><b>aquí</b></a>.
 
 <h3><b>Recomendaciones</b></h3>
 
