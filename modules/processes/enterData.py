@@ -195,15 +195,13 @@ class EnterData(metaclass=Singleton):
                 initial_billed_period = "0" + initial_billed_period
 
             if len(initial_billed_period.split("/")[1]) == 1:
-                initial_billed_period = initial_billed_period.split("/")[0] + "/0" + initial_billed_period.split("/")[1]
-                + "/" + initial_billed_period.split("/")[2]
+                initial_billed_period = initial_billed_period.split("/")[0] + "/0" + initial_billed_period.split("/")[1] + "/" + initial_billed_period.split("/")[2]
 
             if len(final_billed_period.split("/")[0]) == 1:
                 final_billed_period = "0" + final_billed_period
 
             if len(final_billed_period.split("/")[1]) == 1:
-                final_billed_period = final_billed_period.split("/")[0] + "/0" + final_billed_period.split("/")[1]
-                + "/" + final_billed_period.split("/")[2]
+                final_billed_period = final_billed_period.split("/")[0] + "/0" + final_billed_period.split("/")[1] + "/" + final_billed_period.split("/")[2]
 
             self.__billed_period = initial_billed_period + " - " + final_billed_period
 
