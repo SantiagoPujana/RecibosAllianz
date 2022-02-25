@@ -1,3 +1,5 @@
+<div align="justify">
+
 <h1 align="center">Recibos Allianz</h1>
 
 <div align="center">  
@@ -56,3 +58,5 @@ Se debe tener instalado y actualizado el navegador Google Chrome para un optimo 
 ***chrome://settings/help***
 
 <a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
+  
+</div>
