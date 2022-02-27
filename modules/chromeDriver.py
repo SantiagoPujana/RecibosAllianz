@@ -73,7 +73,7 @@ class ChromeDriver(metaclass=Singleton):
 
     def webDriverWait(self, driver, module, data, by=None, action=None):
 
-        wed_driver_wait = WebDriverWait(driver, 20)
+        wed_driver_wait = WebDriverWait(driver, 10)
 
         if module == "element_to_be_clickable":
 

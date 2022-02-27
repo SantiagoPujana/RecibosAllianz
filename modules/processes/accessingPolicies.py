@@ -72,7 +72,7 @@ class AccessingPolicies(metaclass=Singleton):
 
                 if str(self.__receipt_info[0][0]).split(".")[0] == policy_id:
 
-                    if date.split("/")[2] == self.__billed_period.split("/")[2].split(" ")[0]:
+                    if date.split("/")[2] >= self.__billed_period.split("/")[2].split(" ")[0]:
 
                         policy_result = True
 

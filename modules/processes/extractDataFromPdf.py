@@ -42,14 +42,14 @@ class ExtractDataFromPdf(metaclass=Singleton):
         pdf_text = pdf_document.loadPage(0).getText("text")
 
         period_info = pdf_text.split("Periodo facturado: ")[1].split("Clave Asesor:")[0].split("\n")[0]
-        document_info = period_info.split("/")[1] + period_info.split("/")[3]
-        info_entered = self.__billed_period.split("/")[1] + self.__billed_period.split("/")[3]
+        document_info = period_info.split("/")[1] + " " + period_info.split("/")[3]
+        info_entered = self.__billed_period.split("/")[1] + " " +  self.__billed_period.split("/")[3]
 
         pdf_document.close()
 
         self.__bar.update(5)
 
-        if document_info == info_entered:
+        if self.__verifyPDF(document_info, info_entered):
 
             self.__ifInfoIsCorrect(
                 reference_info=pdf_text.split("REFERENCIA DE PAGO: ")[1].split("FECHA")[0].split("\n")[0].split("17001")[1],
@@ -74,6 +74,18 @@ class ExtractDataFromPdf(metaclass=Singleton):
             check = False
 
         return check
+
+    def __verifyPDF(self, doc_inf, inf_ent):
+
+        check_pdf = False
+
+        if doc_inf == inf_ent:
+            check_pdf = True
+        # special case for several months
+        #elif int(doc_inf.split(" ")[0]) > int(inf_ent.split(" ")[0]): # special case
+        #    check_pdf = True # special case
+
+        return check_pdf
 
     def __openPdfDocument(self):
 

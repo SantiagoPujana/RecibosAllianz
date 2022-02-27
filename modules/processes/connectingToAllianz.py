@@ -36,7 +36,7 @@ class ConnectingToAllianz(metaclass=Singleton):
 
         try:
 
-            self.__driver.implicitly_wait(30)
+            self.__driver.implicitly_wait(10)
             self.__driver.get("https://www.allia2net.com.co/ngx-epac/public/home")
 
             self.__accessingToAllianz()
