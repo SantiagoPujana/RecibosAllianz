@@ -1,0 +1,5 @@
+data.txt
+pyinstaller_command.txt
+modules/processes/__pycache__
+modules/__pycache__
+chromeDriver
