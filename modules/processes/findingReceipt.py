@@ -162,7 +162,6 @@ class FindingReceipt(metaclass=Singleton):
                 if date == self.__billed_period.split(" ")[0]:
 
                     receipt_found = True
-
                     receipt_list.append((date, row - 1, concept))
 
                 elif str(year) == test_year:
@@ -170,7 +169,6 @@ class FindingReceipt(metaclass=Singleton):
                     if self.__validatingReceipt(month, month_, day):
 
                         receipt_found = True
-
                         receipt_list.append((date, row - 1, concept))
 
                 elif year == int(test_year) - 1:
@@ -178,7 +176,6 @@ class FindingReceipt(metaclass=Singleton):
                     if self.__validatingReceipt(month, month_, day):
 
                         receipt_found = True
-
                         receipt_list.append((date, row - 1, concept))
 
         return receipt_found, receipt_list
