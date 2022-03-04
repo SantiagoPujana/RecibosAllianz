@@ -105,7 +105,7 @@ class FindingReceipt(metaclass=Singleton):
 
         self.__driver.close()
 
-    def __searchingReceipt(self):
+    def __searchingReceipt(self) -> tuple:
 
         receipt_list = []
 
