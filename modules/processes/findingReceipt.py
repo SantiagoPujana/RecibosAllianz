@@ -14,7 +14,7 @@ from time import sleep
 
 class FindingReceipt(metaclass=Singleton):
 
-    def __init__(self, driver):
+    def __init__(self, driver : object):
 
         self.__bar = ProgressBar().getProgressBar()
         self.__GREEN = Colors().green()
@@ -63,7 +63,6 @@ class FindingReceipt(metaclass=Singleton):
                 try:
 
                     download_result = self.__tryingToDownload(receipts)
-
                     break
 
                 except (NameError, UnboundLocalError):
@@ -85,7 +84,7 @@ class FindingReceipt(metaclass=Singleton):
 
                 writeTXT(" [x] Error: No se encontró recibo(s) en el período facturado especificado.", self.__report)
 
-                self.__excel_file_settings.errorProcessExcel("RECIBO PENDIENTE")
+                self.__excel_file_settings.errorProcessExcel("NO SE ENCONTRÓ EL RECIBO")
 
             self.__bar.update(13)
 
@@ -119,7 +118,7 @@ class FindingReceipt(metaclass=Singleton):
 
         rows = len(self.__driver.find_elements_by_xpath("/html/body/div[1]/div[2]/table/tbody/tr[1]/td/form[1]/div[2]/div/table/tbody/tr[2]/td/div/table[1]/tbody/tr/td/div/table/tbody/tr"))
 
-        for row in range(1, rows+1):
+        for row in range(1, rows + 1):
 
             main_description = ""
 
@@ -158,31 +157,33 @@ class FindingReceipt(metaclass=Singleton):
                 else:
                     month = str(month)
 
+                test_year = self.__billed_period.split("/")[2].split(" ")[0]
+
                 if date == self.__billed_period.split(" ")[0]:
 
                     receipt_found = True
 
-                    receipt_list.append((date, row-1, concept))
+                    receipt_list.append((date, row - 1, concept))
 
-                elif str(year) == self.__billed_period.split("/")[2].split(" ")[0]:
-
-                    if self.__validatingReceipt(month, month_, day):
-
-                        receipt_found = True
-
-                        receipt_list.append((date, row-1, concept))
-
-                elif year == int(self.__billed_period.split("/")[2].split(" ")[0]) - 1:
+                elif str(year) == test_year:
 
                     if self.__validatingReceipt(month, month_, day):
 
                         receipt_found = True
 
-                        receipt_list.append((date, row-1, concept))
+                        receipt_list.append((date, row - 1, concept))
+
+                elif year == int(test_year) - 1:
+
+                    if self.__validatingReceipt(month, month_, day):
+
+                        receipt_found = True
+
+                        receipt_list.append((date, row - 1, concept))
 
         return receipt_found, receipt_list
 
-    def __validatingReceipt(self, receipt_month, receipt_month_, receipt_day):
+    def __validatingReceipt(self, receipt_month : str, receipt_month_ : str, receipt_day : str) -> bool:
 
         check_receipt = False
 
@@ -208,7 +209,7 @@ class FindingReceipt(metaclass=Singleton):
 
         return check_receipt
 
-    def __tryingToDownload(self, receipts):
+    def __tryingToDownload(self, receipts : list) -> bool:
 
         check_download = False
 
@@ -245,9 +246,11 @@ class FindingReceipt(metaclass=Singleton):
                     if len(receipts) > 1:
                         self.__backToTheReceiptsTable()
 
-                    if check_download: break
+                    if check_download:
+                        break
 
-            if check_download: break
+            if check_download:
+                break
 
         return check_download
 

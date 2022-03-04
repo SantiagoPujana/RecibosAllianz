@@ -17,8 +17,8 @@ class AssignedValues(metaclass=Singleton):
     __group_files = bool()
     __billed_period = str()
 
-    def __init__(self, user=None, password=None, excel_file=None, excel_sheet=None, destiny_folder=None,
-                dict_folder=None, report=None, browser_window=None, group_files=None, billed_period=None):
+    def __init__(self, user : str=None, password : str=None, excel_file : str=None, excel_sheet : str=None, destiny_folder : dict=None,
+                dict_folder : str=None, report : bool=None, browser_window : bool=None, group_files : bool=None, billed_period : str=None):
 
         self.__class__.__user = user
         self.__class__.__password = password
@@ -36,45 +36,45 @@ class AssignedValues(metaclass=Singleton):
         cls.__receipt_info = receipt_info
 
     @classmethod
-    def getUser(cls):
+    def getUser(cls) -> str:
         return cls.__user
 
     @classmethod
-    def getPassword(cls):
+    def getPassword(cls) -> str:
         return cls.__password
 
     @classmethod
-    def getExcelFile(cls):
+    def getExcelFile(cls) -> str:
         return cls.__excel_file
 
     @classmethod
-    def getExcelSheet(cls):
+    def getExcelSheet(cls) -> str:
         return cls.__excel_sheet
 
     @classmethod
-    def getBilledPeriod(cls):
+    def getBilledPeriod(cls) -> str:
         return cls.__billed_period
 
     @classmethod
-    def getReceiptInfo(cls):
+    def getReceiptInfo(cls) -> list:
         return cls.__receipt_info
 
     @classmethod
-    def getDestinyFolder(cls):
+    def getDestinyFolder(cls) -> dict:
         return cls.__destiny_folder
 
     @classmethod
-    def getDictFolder(cls):
+    def getDictFolder(cls) -> str:
         return cls.__dict_folder
 
     @classmethod
-    def getReport(cls):
+    def getReport(cls) -> bool:
         return cls.__report
 
     @classmethod
-    def getBrowserWindow(cls):
+    def getBrowserWindow(cls) -> bool:
         return cls.__browser_window
 
     @classmethod
-    def getGroupFiles(cls):
+    def getGroupFiles(cls) -> bool:
         return cls.__group_files

@@ -32,7 +32,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
         self.__main_path = "C:\\Users\\" + getuser() + "\\" + self.__dict_folder[self.__destiny_folder]
         self.__file_path = self.__main_path + "\\" + self.__file_name
 
-    def downloadReceipt(self):
+    def downloadReceipt(self) -> bool:
 
         check = True
 
@@ -42,14 +42,14 @@ class ExtractDataFromPdf(metaclass=Singleton):
         pdf_text = pdf_document.loadPage(0).getText("text")
 
         period_info = pdf_text.split("Periodo facturado: ")[1].split("Clave Asesor:")[0].split("\n")[0]
-        document_info = period_info.split("/")[1] + period_info.split("/")[3]
-        info_entered = self.__billed_period.split("/")[1] + self.__billed_period.split("/")[3]
+        document_info = period_info.split("/")[1] + " " + period_info.split("/")[3]
+        info_entered = self.__billed_period.split("/")[1] + " " +  self.__billed_period.split("/")[3]
 
         pdf_document.close()
 
         self.__bar.update(5)
 
-        if document_info == info_entered:
+        if self.__verifyPDF(document_info, info_entered):
 
             self.__ifInfoIsCorrect(
                 reference_info=pdf_text.split("REFERENCIA DE PAGO: ")[1].split("FECHA")[0].split("\n")[0].split("17001")[1],
@@ -75,7 +75,16 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         return check
 
-    def __openPdfDocument(self):
+    def __verifyPDF(self, doc_inf : str, inf_ent : str) -> bool:
+
+        check_pdf = False
+
+        if doc_inf == inf_ent:
+            check_pdf = True
+
+        return check_pdf
+
+    def __openPdfDocument(self) -> object:
 
         self.__bar.write(s=self.__GREEN + " [+] Recibo descargado.")
 
@@ -87,7 +96,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         return fitz.open(self.__file_path)
 
-    def __ifInfoIsCorrect(self, reference_info, day_limit_info, receipt_cost, receipt_period):
+    def __ifInfoIsCorrect(self, reference_info : str, day_limit_info : str, receipt_cost : str, receipt_period : str):
 
         document_path = self.__main_path + "\\" + self.__excel_file.split("\\")[-1].split(".")[0]
 
@@ -97,8 +106,8 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         try:
             mkdir(document_path)
-
-        except WindowsError: pass
+        except WindowsError:
+            pass
 
         if self.__group_files:
 
@@ -110,12 +119,13 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
                 mkdir(document_path + "\\" + self.__receipt_info[2][0])
 
-                self.__bar.write(s=self.__GREEN + " [+] Se creo la carpeta interna con el nombre: "
+                self.__bar.write(s=self.__GREEN + " [+] Se creó la carpeta interna con el nombre: "
                                 + self.__receipt_info[2][0])
 
-                writeTXT(" [+] Se creo la carpeta interna con el nombre: " + self.__receipt_info[2][0], self.__report)
+                writeTXT(" [+] Se creó la carpeta interna con el nombre: " + self.__receipt_info[2][0], self.__report)
 
-            except WindowsError: pass
+            except WindowsError:
+                pass
 
             if path.isfile(document_path + "\\" + self.__receipt_info[2][0] + "\\" + self.__file_name):
                 move(self.__file_path, document_path + "\\"

@@ -5,7 +5,7 @@ class Singleton(type):
 
     __instances = dict()
 
-    def __call__(cls, *args, **kwargs):
+    def __call__(cls, *args, **kwargs) -> any:
 
         if cls not in cls.__instances:
             cls.__instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
@@ -13,7 +13,7 @@ class Singleton(type):
         return cls.__instances[cls]
 
     @classmethod
-    def deleteInstances(cls, class_name=None):
+    def deleteInstances(cls, class_name : str=None):
 
         if class_name != None:
 

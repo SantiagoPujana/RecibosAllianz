@@ -36,7 +36,7 @@ class ConnectingToAllianz(metaclass=Singleton):
 
         try:
 
-            self.__driver.implicitly_wait(30)
+            self.__driver.implicitly_wait(10)
             self.__driver.get("https://www.allia2net.com.co/ngx-epac/public/home")
 
             self.__accessingToAllianz()
@@ -67,7 +67,8 @@ class ConnectingToAllianz(metaclass=Singleton):
             self.__launchNotification(title="Recibos Allianz",
                                     message="Iniciando el proceso de descarga de recibos.",
                                     duration=15)
-        except Exception: pass
+        except Exception:
+            pass
 
         ExcelFileInfo(driver=self.__driver).accessingToExcelFile()
 
@@ -89,7 +90,8 @@ class ConnectingToAllianz(metaclass=Singleton):
             self.__launchNotification(title="Recibos Allianz",
                                     message="El proceso de descarga de recibos ha finalizado con una duración de: " + time_taken,
                                     duration=15)
-        except Exception: pass
+        except Exception:
+            pass
 
         print(self.__GREEN + " [+] Proceso completado exitosamente."
                         + "\n [+] Duración del proceso: " + time_taken + "\n")
@@ -98,7 +100,7 @@ class ConnectingToAllianz(metaclass=Singleton):
                 + "\n [+] Duración del proceso: " + time_taken + "\n", self.__report)
 
     @staticmethod
-    def __launchNotification(title, message, duration):
+    def __launchNotification(title :str, message : str, duration : int):
 
         try:
 
@@ -107,4 +109,5 @@ class ConnectingToAllianz(metaclass=Singleton):
 
             notification_thread.start()
 
-        except Exception: pass
+        except Exception:
+            pass

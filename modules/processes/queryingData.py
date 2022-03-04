@@ -12,7 +12,7 @@ from time import sleep
 
 class QueryingData(metaclass=Singleton):
 
-    def __init__(self, driver):
+    def __init__(self, driver : object):
 
         self.__GREEN = Colors().green()
         self.__bar = ProgressBar().getProgressBar()

@@ -13,7 +13,7 @@ from time import sleep
 
 class AccessingPolicies(metaclass=Singleton):
 
-    def __init__(self, driver):
+    def __init__(self, driver : object):
 
         self.__GREEN = Colors().green()
         self.__RED = Colors().red()
@@ -55,7 +55,7 @@ class AccessingPolicies(metaclass=Singleton):
         else:
             FindingReceipt(driver=self.__driver).identifyingReceipt()
 
-    def __searchingPolicy(self):
+    def __searchingPolicy(self) -> tuple:
 
         policy_result = False
 
@@ -72,12 +72,10 @@ class AccessingPolicies(metaclass=Singleton):
 
                 if str(self.__receipt_info[0][0]).split(".")[0] == policy_id:
 
-                    if date.split("/")[2] == self.__billed_period.split("/")[2].split(" ")[0]:
+                    if date.split("/")[2] >= self.__billed_period.split("/")[2].split(" ")[0]:
 
                         policy_result = True
-
                         item_position = row
-
                         break
 
                     else:
@@ -87,21 +85,18 @@ class AccessingPolicies(metaclass=Singleton):
                             if int(date.split("/")[2]) == int(self.__billed_period.split("/")[2].split(" ")[0]) - i:
 
                                 policy_result = True
-
                                 item_position = row
-
                                 break
 
-                        if policy_result: break
+                        if policy_result:
+                            break
 
                 elif str(self.__receipt_info[0][0]).split(".")[0] == "0" and policy_id == "":
 
                     if date.split("/")[2] == self.__billed_period.split("/")[2].split(" ")[0]:
 
                         policy_result = True
-
                         item_position = row
-
                         break
 
                     else:
@@ -111,16 +106,15 @@ class AccessingPolicies(metaclass=Singleton):
                             if int(date.split("/")[2]) == int(self.__billed_period.split("/")[2].split(" ")[0]) - i:
 
                                 policy_result = True
-
                                 item_position = row
-
                                 break
 
-                        if policy_result: break
+                        if policy_result:
+                            break
 
         return policy_result, item_position
 
-    def __accessingToReceipts(self, result):
+    def __accessingToReceipts(self, result : int):
 
         self.__bar.update(15)
 

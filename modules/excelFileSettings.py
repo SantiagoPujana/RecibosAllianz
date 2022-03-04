@@ -23,7 +23,7 @@ class ExcelFileSettings(metaclass=Singleton):
         self.__excel_file_object = load_workbook(self.__excel_file)
         self.__excel_sheet_object = self.__excel_file_object[AssignedValues.getExcelSheet()]
 
-    def writeExcelFile(self, reference, datepayday, value, period):
+    def writeExcelFile(self, reference : str, payday_date : str, value : str, period : str):
 
         progress_bar = ProgressBar().getProgressBar()
 
@@ -38,9 +38,9 @@ class ExcelFileSettings(metaclass=Singleton):
 
         try:
             self.__excel_sheet_object[self.__receipt_info[6]].value = date(
-                int(datepayday.split("/")[2]),
-                int(datepayday.split("/")[1]),
-                int(datepayday.split("/")[0]))
+                int(payday_date.split("/")[2]),
+                int(payday_date.split("/")[1]),
+                int(payday_date.split("/")[0]))
 
         except ValueError:
 
@@ -60,12 +60,12 @@ class ExcelFileSettings(metaclass=Singleton):
                 'diciembre' : '12'
             }
 
-            month = months[datepayday.split("/")[1]]
+            month = months[payday_date.split("/")[1]]
 
             self.__excel_sheet_object[self.__receipt_info[6]].value = date(
-                int(datepayday.split("/")[2]),
+                int(payday_date.split("/")[2]),
                 int(month),
-                int(datepayday.split("/")[0]))
+                int(payday_date.split("/")[0]))
 
         progress_bar.update(5)
 
@@ -102,7 +102,7 @@ class ExcelFileSettings(metaclass=Singleton):
 
         progress_bar.update(5)
 
-    def errorProcessExcel(self, text):
+    def errorProcessExcel(self, text : str):
 
         self.__excel_sheet_object["I" + self.__receipt_info[6][1:]].value = text
         self.__excel_sheet_object["I" + self.__receipt_info[6][1:]].font = self.__red_font
@@ -113,21 +113,18 @@ class ExcelFileSettings(metaclass=Singleton):
 
         try:
             self.__excel_file_object.save(filename=self.__excel_file)
-
         except Exception:
-
             print(self.__RED + "\n\n [x] Error: Ocurrio un error al guardar el archivo Excel, si lo tienes abierto por favor cierralo o puede que tenga errores.")
-
             writeTXT("\n\n [x] Error: Ocurrio un error al guardar el archivo Excel, si lo tienes abierto por favor cierralo o puede que tenga errores.", self.__report)
 
-    def getSheetObject(self):
+    def getSheetObject(self) -> any:
         return self.__excel_sheet_object
 
-    def getCellObject(self, row, column):
+    def getCellObject(self, row, column) -> any:
         return self.__excel_sheet_object.cell(row=row, column=column)
 
-    def getCellValue(self, row, column):
+    def getCellValue(self, row, column) -> any:
         return self.__excel_sheet_object.cell(row=row, column=column).value
 
-    def getCellFill(self, row, column):
+    def getCellFill(self, row, column) -> any:
         return self.__excel_sheet_object.cell(row=row, column=column).fill

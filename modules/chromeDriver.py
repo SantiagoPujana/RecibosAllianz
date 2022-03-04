@@ -27,7 +27,8 @@ class ChromeDriver(metaclass=Singleton):
 
         if not AssignedValues.getBrowserWindow():
             self.__options.add_argument("--headless")
-        else: self.__options.add_argument("--start-maximized")
+        else:
+            self.__options.add_argument("--start-maximized")
 
         self.__options.add_argument("--log-level=OFF")
         self.__options.add_argument("--no-sandbox")
@@ -56,10 +57,16 @@ class ChromeDriver(metaclass=Singleton):
 
     def initializeDriver(self):
 
-        try:
-            self.__driver = Chrome(executable_path=self.__executable_path, options=self.__options, service_log_path='NUL')
-        except SessionNotCreatedException:
-            Verifications().checkVersions()
+        count = 0
+
+        while True:
+
+            try:
+                self.__driver = Chrome(executable_path=self.__executable_path, options=self.__options, service_log_path='NUL')
+                break
+            except SessionNotCreatedException:
+                Verifications().checkVersions(count)
+                count+=1
 
         self.__driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
 
@@ -68,12 +75,12 @@ class ChromeDriver(metaclass=Singleton):
 
         self.__driver.execute("send_command", params)
 
-    def getWebDriver(self):
+    def getWebDriver(self) -> any:
         return self.__driver
 
-    def webDriverWait(self, driver, module, data, by=None, action=None):
+    def webDriverWait(self, driver : str, module : str, data : str, by : str=None, action : str=None):
 
-        wed_driver_wait = WebDriverWait(driver, 20)
+        wed_driver_wait = WebDriverWait(driver, 10)
 
         if module == "element_to_be_clickable":
 
