@@ -96,8 +96,6 @@ class FindingReceipt(metaclass=Singleton):
 
         all_receipts = [] # special case
 
-        receipt_found = False
-
         sleep(3)
 
         self.__chrome_driver_object.webDriverWait(driver=self.__driver, module="visibility_of_all_elements_located",
