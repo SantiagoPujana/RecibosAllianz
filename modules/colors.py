@@ -10,25 +10,25 @@ class Colors(metaclass=Singleton):
         init(autoreset=True)
 
     @staticmethod
-    def red():
+    def red() -> str:
         return Fore.RED
 
     @staticmethod
-    def yellow():
+    def yellow() -> str:
         return Fore.YELLOW
 
     @staticmethod
-    def green():
+    def green() -> str:
         return Fore.GREEN
 
     @staticmethod
-    def blue():
+    def blue() -> str:
         return Fore.BLUE
 
     @staticmethod
-    def cyan():
+    def cyan() -> str:
         return Fore.CYAN
 
     @staticmethod
-    def white():
+    def white() -> str:
         return Fore.WHITE

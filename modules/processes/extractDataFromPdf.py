@@ -32,7 +32,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
         self.__main_path = "C:\\Users\\" + getuser() + "\\" + self.__dict_folder[self.__destiny_folder]
         self.__file_path = self.__main_path + "\\" + self.__file_name
 
-    def downloadReceipt(self):
+    def downloadReceipt(self) -> bool:
 
         check = True
 
@@ -75,7 +75,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         return check
 
-    def __verifyPDF(self, doc_inf, inf_ent):
+    def __verifyPDF(self, doc_inf : str, inf_ent : str) -> bool:
 
         check_pdf = False
 
@@ -87,7 +87,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         return check_pdf
 
-    def __openPdfDocument(self):
+    def __openPdfDocument(self) -> object:
 
         self.__bar.write(s=self.__GREEN + " [+] Recibo descargado.")
 
@@ -99,7 +99,7 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         return fitz.open(self.__file_path)
 
-    def __ifInfoIsCorrect(self, reference_info, day_limit_info, receipt_cost, receipt_period):
+    def __ifInfoIsCorrect(self, reference_info : str, day_limit_info : str, receipt_cost : str, receipt_period : str):
 
         document_path = self.__main_path + "\\" + self.__excel_file.split("\\")[-1].split(".")[0]
 
@@ -109,8 +109,8 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
         try:
             mkdir(document_path)
-
-        except WindowsError: pass
+        except WindowsError:
+            pass
 
         if self.__group_files:
 
@@ -122,12 +122,13 @@ class ExtractDataFromPdf(metaclass=Singleton):
 
                 mkdir(document_path + "\\" + self.__receipt_info[2][0])
 
-                self.__bar.write(s=self.__GREEN + " [+] Se creo la carpeta interna con el nombre: "
+                self.__bar.write(s=self.__GREEN + " [+] Se creó la carpeta interna con el nombre: "
                                 + self.__receipt_info[2][0])
 
-                writeTXT(" [+] Se creo la carpeta interna con el nombre: " + self.__receipt_info[2][0], self.__report)
+                writeTXT(" [+] Se creó la carpeta interna con el nombre: " + self.__receipt_info[2][0], self.__report)
 
-            except WindowsError: pass
+            except WindowsError:
+                pass
 
             if path.isfile(document_path + "\\" + self.__receipt_info[2][0] + "\\" + self.__file_name):
                 move(self.__file_path, document_path + "\\"

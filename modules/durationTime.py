@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #_*_ coding: utf-8 _*_
 
-def durationTime(duration):
+def durationTime(duration : int) -> str:
 
     unit = ""
 

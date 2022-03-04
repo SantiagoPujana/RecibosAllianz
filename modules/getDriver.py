@@ -5,7 +5,7 @@ from os import remove
 from zipfile import ZipFile
 from urllib.request import urlopen
 
-def downloadDriver(url):
+def downloadDriver(url : str):
 
     chrome_driver_file = urlopen(url=url).read()
 

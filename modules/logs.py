@@ -4,7 +4,7 @@
 from modules.assignedValues import AssignedValues
 from getpass import getuser
 
-def writeTXT(data, report):
+def writeTXT(data : str, report : bool):
 
     if report:
 

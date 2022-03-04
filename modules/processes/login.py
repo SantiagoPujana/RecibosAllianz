@@ -12,7 +12,7 @@ from time import sleep
 
 class Login(metaclass=Singleton):
 
-    def __init__(self, driver):
+    def __init__(self, driver : object):
 
         self.__report = AssignedValues.getReport()
         self.__user_credential = AssignedValues.getUser()

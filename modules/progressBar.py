@@ -13,5 +13,5 @@ class ProgressBar(metaclass=Singleton):
                         bar_format="{l_bar}%s{bar}%s{r_bar}"
                         % (Colors().blue(), Colors().white()))
 
-    def getProgressBar(self):
+    def getProgressBar(self) -> object:
         return self.__bar

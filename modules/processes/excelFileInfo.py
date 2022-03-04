@@ -17,7 +17,7 @@ from getpass import getuser
 
 class ExcelFileInfo(metaclass=Singleton):
 
-    def __init__(self, driver):
+    def __init__(self, driver : object):
 
         self.__GREEN = Colors().green()
         self.__WHITE = Colors().white()
@@ -57,7 +57,7 @@ class ExcelFileInfo(metaclass=Singleton):
 
         self.__bar.close()
 
-    def __processCellByCell(self, row_number):
+    def __processCellByCell(self, row_number : int):
 
         try:
 
@@ -137,7 +137,8 @@ class ExcelFileInfo(metaclass=Singleton):
                     self.__driver.switch_to.window(self.__driver.window_handles[tab])
                     self.__driver.close()
 
-                except Exception: break
+                except Exception:
+                    break
 
     def __timeOutException(self):
 
@@ -147,8 +148,7 @@ class ExcelFileInfo(metaclass=Singleton):
         writeTXT(" [x] Error: Se generó el siguiente error en el driver " + str(exc_info()[0]).split("'")[1].split("'")[0]
                 + "\n [x] Ejecutando un intento más para completar el proceso...", self.__report)
 
-
-    def __webDriverException(self, exception):
+    def __webDriverException(self, exception : str):
 
         exception_info = str(exc_info()[0]).split("'")[1].split("'")[0]
 
@@ -180,7 +180,7 @@ class ExcelFileInfo(metaclass=Singleton):
                     + exception.split("Message: ")[1].split("\n")[0]
                     + "\n [x] Ejecutando un intento más para completar el proceso...", self.__report)
 
-    def __generalException(self, exception):
+    def __generalException(self, exception : str):
 
         exception_info = str(exc_info()[0]).split("'")[1].split("'")[0]
 

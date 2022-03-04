@@ -116,7 +116,7 @@ class EnterData(metaclass=Singleton):
 
         self.__showInfo()
 
-    def setUser(self, message):
+    def setUser(self, message : str) -> tuple:
 
         check_user_credential = False
         user_credential = input(self.__YELLOW + message)
@@ -131,7 +131,7 @@ class EnterData(metaclass=Singleton):
 
         return check_user_credential, user_credential
 
-    def setPassword(self, message):
+    def setPassword(self, message : str) -> tuple:
 
         check_password_credential = False
 
@@ -147,7 +147,7 @@ class EnterData(metaclass=Singleton):
 
         return check_password_credential, password_credential
 
-    def __setExcelFile(self):
+    def __setExcelFile(self) -> bool:
 
         check_data = False
 
@@ -180,7 +180,8 @@ class EnterData(metaclass=Singleton):
                 check_data = True
                 print(self.__GREEN + "\n [+] Archivo Excel seleccionado: " + self.__excel_file)
 
-        except Exception: pass
+        except Exception:
+            pass
 
         return check_data
 
@@ -208,7 +209,7 @@ class EnterData(metaclass=Singleton):
         except Exception:
             exitMessage()
 
-    def __setDestinyFolder(self):
+    def __setDestinyFolder(self) -> bool:
 
         check_data = False
 
@@ -239,7 +240,7 @@ class EnterData(metaclass=Singleton):
 
         return check_data
 
-    def __setData(self, text):
+    def __setData(self, text : str) -> str:
 
         check_data = False
 
@@ -257,7 +258,7 @@ class EnterData(metaclass=Singleton):
 
         return enter_data
 
-    def defineConfirmation(self, text):
+    def defineConfirmation(self, text : str) -> bool:
 
         check_data = False
 

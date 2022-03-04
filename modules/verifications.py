@@ -13,7 +13,7 @@ from warnings import simplefilter
 from getpass import getuser
 from ctypes import windll
 from time import sleep
-from sys import exit, executable, platform, argv
+from sys import executable, platform, argv
 import socket
 
 class Verifications(metaclass=Singleton):
@@ -32,9 +32,7 @@ class Verifications(metaclass=Singleton):
 
         try:
             connection.connect(("8.8.8.8", 53))
-
         except Exception:
-
             print(self.__RED + "\n\n [-] Error: No hay salida a internet...")
             exitMessage()
 
@@ -46,7 +44,7 @@ class Verifications(metaclass=Singleton):
 
         sleep(3)
 
-        if not path.isfile("modules\\chromeDriver\\chromedriver.exe"):
+        if not path.isfile("chromeDriver\\chromedriver.exe"):
 
             try:
                 mkdir("chromeDriver")
@@ -98,27 +96,24 @@ class Verifications(metaclass=Singleton):
         return validate_proccess, cell_number
 
     @staticmethod
-    def checkPrivileges():
+    def checkPrivileges() -> bool:
         return windll.shell32.IsUserAnAdmin() == True
 
-    def checkVersions(self):
+    def checkVersions(self, iter : int):
+
+        if iter > 0:
+
+            self.__drivers = self.__drivers + "_" + str(int(str(urlopen(self.__drivers).read(), encoding="utf-8").split(".")[0]) - iter)
 
         driver_online_version = str(urlopen(self.__drivers).read(), encoding="utf-8")
 
         print(self.__GREEN + "\n [+] Actualizando el driver de Google Chrome...")
 
+        print(self.__GREEN + f"\n [+] Intentando descargar el driver con versión {driver_online_version} ...")
+
         downloadDriver(self.__url + driver_online_version + self.__file_to_download)
 
-        print(self.__GREEN + "\n [+] Vuelva a ejecutar el software para que los cambios se apliquen...\n\n")
-
-        system("pause")
-
-        print(self.__RED + "\n\n [x] Saliendo del software...")
-
-        sleep(2)
-        exit(0)
-
-    def checkIfFileIsOpen(self, message):
+    def checkIfFileIsOpen(self, message: str):
 
         excel_file = AssignedValues.getExcelFile()
         dict_folder = AssignedValues.getDictFolder()
@@ -149,7 +144,8 @@ class Verifications(metaclass=Singleton):
             remove("C:\\Users\\" + getuser() + "\\"
                 + dict_folder[destiny_folder] + "\\fichero.pdf")
 
-        except Exception: pass
+        except Exception:
+            pass
 
     @staticmethod
     def checkCLISize():
@@ -157,7 +153,7 @@ class Verifications(metaclass=Singleton):
         if executable.split("\\")[-1] != "python.exe":
             system("cls && MODE CON COLS=120 LINES=41")
 
-    def checkIsWindows(self):
+    def checkIsWindows(self) -> bool:
 
         if platform == "win32":
 
@@ -168,10 +164,8 @@ class Verifications(metaclass=Singleton):
                 if executable.split("\\")[-1] != "python.exe":
                     windll.shell32.ShellExecuteW(None, "runas", executable, " ".join(argv), None, 1)
                 else:
-
                     print(self.__RED + "\n\n [-] Error: Ejecute el script con permisos de administrador...\n")
                     system("pause")
         else:
-
             print(self.__GREEN + "\n\n [-] Error: El sistema operativo que estas usando es incompatible con el software, solo es compatible con Windows...\n")
             exitMessage()
