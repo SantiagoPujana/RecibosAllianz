@@ -48,6 +48,7 @@ Puede ver el archivo Excel de ejemplo <a href="https://github.com/ProzTock/Recib
 Para clonar este repositorio y descargar las dependencias, pueden ejecutar los siguientes comandos:
 
     git clone https://github.com/ProzTock/RecibosAllianz.git
+    cd RecibosAllianz
     pip install -r requirements.txt
     python AllianzReceipts.py
 
