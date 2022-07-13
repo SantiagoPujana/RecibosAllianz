@@ -58,6 +58,6 @@ Se debe tener instalado y actualizado el navegador Google Chrome para un optimo 
 
 ***chrome://settings/help***
 
-<a href="https://github.com/ProzTock/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
+<a href="https://github.com/SantiagoPujana/RecibosAllianz/blob/main/LICENSE"><b>Licensia MIT</b></a>
 
 </div>
